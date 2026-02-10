@@ -39,6 +39,8 @@ return {
     "L3MON4D3/LuaSnip",
   },
 
+  { "neovim/nvim-lspconfig"},
+
   { -- Comentation generator for Doxygen
     "danymat/neogen",
     config = true,
