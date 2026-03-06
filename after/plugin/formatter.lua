@@ -7,9 +7,14 @@ require("conform").setup({
     rust = { "rustfmt", lsp_format = "fallback" },
     -- Conform will run the first available formatter
     javascript = { "prettierd", "prettier", stop_after_first = true },
+    astro = { "prettierd", "prettier", stop_after_first = true },
+    typescript = { "prettierd", "prettier", stop_after_first = true },
+    css = { "prettierd", "prettier", stop_after_first = true },
+    html = { "prettierd", "prettier", stop_after_first = true },
+    json = { "prettierd", "prettier", stop_after_first = true },
 
-    cpp = {"clang-format"},
-    c = {"clang-format"},
+    cpp = { "clang-format" },
+    c = { "clang-format" },
   },
 })
 vim.keymap.set("", "<leader>f", function()

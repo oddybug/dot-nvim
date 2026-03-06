@@ -1,6 +1,48 @@
 return {
   { "abecodes/tabout.nvim" },
 
+  { "nvim-lua/plenary.nvim" },
+
+  {
+    "Civitasv/cmake-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim"
+    },
+    opts = {
+      cmake_build_directory = "build", -- Where your binaries go
+      cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
+      cmake_build_options = { "-j10" },
+    },
+  },
+
+  { "mfussenegger/nvim-dap" },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text"
+    },
+  },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
+  { "xiyaowong/transparent.nvim" },
+
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+
   { "windwp/nvim-autopairs" },
 
   { "f-person/git-blame.nvim" },
@@ -39,7 +81,7 @@ return {
     "L3MON4D3/LuaSnip",
   },
 
-  { "neovim/nvim-lspconfig"},
+  { "neovim/nvim-lspconfig" },
 
   { -- Comentation generator for Doxygen
     "danymat/neogen",
