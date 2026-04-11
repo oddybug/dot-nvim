@@ -1,6 +1,7 @@
 vim.lsp.enable("luals")
 vim.lsp.enable("clangd")
 vim.lsp.enable("astro")
+vim.lsp.enable("omnisharp")
 
 -- Diagnostic dialogs
 

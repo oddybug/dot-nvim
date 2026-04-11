@@ -1,4 +1,4 @@
 return {
-  cmd = { 'clangd' },
-  filetypes = {'c', 'cpp', 'h', 'hpp'}
+  cmd = { "clangd", "--compile-commands-dir=build" },
+  filetypes = { "c", "cpp", "h", "hpp" },
 }
