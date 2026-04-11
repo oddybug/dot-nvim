@@ -18,6 +18,7 @@ require("conform").setup({
 
     csharp = { "csharpier" },
     cs = { "csharpier"},
+    cmake = {"cmake_format"}
   },
 })
 vim.keymap.set("", "<leader>f", function()

@@ -4,6 +4,7 @@ require("mason-tool-installer").setup({
     "lua-language-server",
     "vim-language-server",
     "clangd",
+    "neocmakelsp",
 
     -- Formatters/Linters
     "clang-format",
@@ -12,9 +13,13 @@ require("mason-tool-installer").setup({
     "stylua",
     "eslint_d",
     "shellcheck",
+    "cmakelang",
+
+    -- linters
+    "cmakelint",
 
     -- Debuggers
-    "codelldb"
+    "codelldb",
   },
 
   auto_update = true,
