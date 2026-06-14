@@ -1,20 +1,12 @@
 return {
-  { "abecodes/tabout.nvim" },
 
   { "nvim-lua/plenary.nvim" },
 
-  {
-    "Civitasv/cmake-tools.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim"
-    },
-    opts = {
-      cmake_build_directory = "build", -- Where your binaries go
-      cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
-      cmake_build_options = { "-j10" },
-    },
-  },
+  -- Aesthetics
+
+  { "xiyaowong/transparent.nvim" },
+
+  -- Debugger
 
   { "mfussenegger/nvim-dap" },
 
@@ -23,9 +15,29 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
-      "theHamsta/nvim-dap-virtual-text"
+      "theHamsta/nvim-dap-virtual-text",
     },
   },
+
+  -- CMake utils
+  {
+    "Civitasv/cmake-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      cmake_build_directory = "build", -- Where your binaries go
+      cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
+      cmake_build_options = { "-j10" },
+    },
+  },
+
+  -- package manager stuff
+
+  { "williamboman/mason.nvim" },
+
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
   {
     "folke/lazydev.nvim",
@@ -39,69 +51,33 @@ return {
     },
   },
 
-  { "xiyaowong/transparent.nvim" },
-
-  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-
-  { "windwp/nvim-autopairs" },
+  -- Git utils
 
   { "f-person/git-blame.nvim" },
 
-  {
-    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-  },
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-  },
+  { "lewis6991/gitsigns.nvim" },
 
-  { -- Useful plugin to show you pending keybinds.
-    "folke/which-key.nvim",
-    event = "VimEnter", -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require("which-key").setup()
+  { "tpope/vim-fugitive" },
 
-      -- Document existing key chains
-      require("which-key").add({
-        { "<leader>c", group = "[C]ode" },
-        { "<leader>d", group = "[D]ocument" },
-        { "<leader>r", group = "[R]ename" },
-        { "<leader>s", group = "[S]earch" },
-        { "<leader>w", group = "[W]orkspace" },
-        { "<leader>t", group = "[T]oggle" },
-        { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-      })
-    end,
-  },
+  -- miscelaneaus
 
-  { -- Git integration plugin
-    "tpope/vim-fugitive",
-  },
+  { "folke/which-key.nvim" },
 
-  { -- Code snippets
-    "L3MON4D3/LuaSnip",
-  },
+  --editor
 
-  { "neovim/nvim-lspconfig" },
+  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
-  { -- Comentation generator for Doxygen
-    "danymat/neogen",
-    config = true,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-  },
-  { -- The cool line bellow
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  { "nvim-telescope/telescope.nvim" },
 
-  { -- Fuzzy Finder (files, lsp, etc)
-    "nvim-telescope/telescope.nvim",
-  },
+  -- Code snippets
+
+  { "L3MON4D3/LuaSnip" },
+
+  { "danymat/neogen", config = true },
+
+  -- Autocompletion
 
   {
-    "williamboman/mason.nvim",
-  },
-  { -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -112,28 +88,33 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
   },
-  { -- Autoformat
-    "stevearc/conform.nvim",
-    opts = {},
-  },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  -- Autoformatter
+
+  { "stevearc/conform.nvim", opts = {} },
+
+  --colorschemes
+
+  {
     "Mofiqul/vscode.nvim",
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme("vscode")
-
-      -- You can configure highlights by doing something like:
+      vim.cmd.colorscheme("lackluster-mint")
       vim.cmd.hi("Comment gui=none")
     end,
   },
+
+  { "rebelot/kanagawa.nvim" },
+
+  { "datsfilipe/vesper.nvim" },
+
+  { "slugbyte/lackluster.nvim" },
+
+  { "ember-theme/nvim" },
+
+  --lsp
+
+  { "neovim/nvim-lspconfig" },
 
   -- Highlight todo, notes, etc in comments
   {

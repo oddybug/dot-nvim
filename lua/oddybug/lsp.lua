@@ -1,7 +1,7 @@
 vim.lsp.enable("luals")
 vim.lsp.enable("clangd")
 vim.lsp.enable("astro")
-vim.lsp.enable("omnisharp")
+-- vim.lsp.enable("omnisharp")
 vim.lsp.enable("typescript")
 
 local cmake_config = require("lsp.cmake")

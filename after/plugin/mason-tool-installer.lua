@@ -5,6 +5,7 @@ require("mason-tool-installer").setup({
     "vim-language-server",
     "clangd",
     "neocmakelsp",
+    "omnisharp",
 
     -- Formatters/Linters
     "clang-format",
